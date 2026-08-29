@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <title>Contact | Green Edge Landscaping</title>
+  <meta name="description" content="Call, text, or send a message for a free landscaping quote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== HEADER [01] ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Green Edge Landscaping</a>
+
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="tel:+15551234567" class="btn btn-primary nav-cta">Call Now</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== PAGE BANNER [13] ===== -->
+  <section class="page-banner">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Contact</p>
+      <h1>Ready When You Are</h1>
+      <p class="page-banner-sub">Call, text, or send a message — we'll get right back to you.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT [12] ===== -->
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk about your yard.</h2>
+        <p>Call or text — fastest way to reach us.</p>
+
+        <ul class="contact-details">
+          <li><strong>Phone:</strong> <a href="tel:+15551234567">(555) 123-4567</a></li>
+          <li><strong>Email:</strong> hello@greenedgelandscaping.com</li>
+          <li><strong>Address:</strong> Street, City, ST</li>
+          <li><strong>Hours:</strong> Mon–Sat, 7am–6pm</li>
+        </ul>
+
+        <div class="map-placeholder">Map Embed</div>
+      </div>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Get My Free Quote</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER [14] ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Green Edge Landscaping</a>
+        <p>Lawn &amp; landscape care, done right.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Green Edge Landscaping. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
