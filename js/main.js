@@ -13,6 +13,25 @@ if (navToggle && mainNav) {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Header fade — hides while scrolling down, reappears as soon as you scroll up
+const siteHeader = document.querySelector('.site-header');
+if (siteHeader) {
+  let lastScrollY = window.scrollY;
+  const fadeThreshold = 80;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const scrollingDown = currentScrollY > lastScrollY;
+
+    if (scrollingDown && currentScrollY > fadeThreshold) {
+      siteHeader.classList.add('header-hidden');
+    } else {
+      siteHeader.classList.remove('header-hidden');
+    }
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+}
+
 // Service detail modal — click a service card to see the full description + image
 const serviceModal = document.getElementById('service-modal');
 
