@@ -77,6 +77,12 @@ if (serviceModal) {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
+
+  // Arriving via a link like services.html#lawn-care opens that service's popup directly
+  if (window.location.hash) {
+    const targetCard = document.querySelector(window.location.hash + '.card[data-title]');
+    if (targetCard) openModal(targetCard);
+  }
 }
 
 // Contact form — placeholder handler, swap with real submission logic per client

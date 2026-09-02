@@ -19,7 +19,7 @@
   /* Locks the page to the light palette below — stops phones/browsers with a
      system dark mode (Android "force dark", Samsung Internet, etc.) from
      auto-inverting the white accents to dark. */
-  color-scheme: light only;
+  color-scheme: only light;
 
   /* --- Brand colors: change these first for a new client --- */
   --color-primary: #2e7d32;
@@ -65,7 +65,10 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
 
 body {
   font-family: var(--font-body);
@@ -99,7 +102,7 @@ h3 { font-size: 1.25rem; }
   padding: 0 24px;
 }
 
-.section { padding: 96px 0; }
+.section { padding: 64px 0; }
 .section-alt { background: var(--color-bg-alt); }
 
 .eyebrow {
@@ -211,20 +214,24 @@ h3 { font-size: 1.25rem; }
   position: relative;
   overflow: hidden;
   padding: 140px 0 110px;
-  background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
 }
 
-.hero::before,
-.hero::after {
-  content: "";
+/* Full-bleed photo placeholder behind the headline — swap for a real photo
+   (as a background-image, or replace this div with an <img>) when ready.
+   If the photo is busy/dark, add a semi-transparent overlay and switch the
+   heading/subtext to white for readability. */
+.hero-bg.media-placeholder {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.25;
+  inset: 0;
   z-index: 0;
+  aspect-ratio: auto;
+  border: none;
+  border-radius: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 20px;
+  font-size: 0.85rem;
 }
-.hero::before { width: 420px; height: 420px; background: var(--color-primary); top: -160px; right: -120px; }
-.hero::after { width: 320px; height: 320px; background: var(--color-accent); bottom: -160px; left: -80px; }
 
 .hero-inner {
   position: relative;
@@ -271,7 +278,6 @@ h3 { font-size: 1.25rem; }
 }
 /* Without this, grid columns refuse to shrink below their content's natural
    width, causing uneven columns that overflow past the container edge. */
-.card-grid .card,
 .card-grid-3 .card { min-width: 0; }
 
 .card {
@@ -280,6 +286,7 @@ h3 { font-size: 1.25rem; }
   border-radius: var(--radius);
   padding: 32px 24px;
   cursor: pointer;
+  scroll-margin-top: 100px;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 .card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
@@ -299,16 +306,29 @@ h3 { font-size: 1.25rem; }
 
 .card p { color: var(--color-text-muted); margin-top: 8px; }
 
-/* Photo placeholder on the homepage service cards — swap the media-placeholder
-   div for an <img> once you have real photos. */
-.card-image.media-placeholder {
-  aspect-ratio: 16 / 10;
-  margin: -32px -24px 20px;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-radius: var(--radius) var(--radius) 0 0;
+/* Homepage "Our Services" teaser — simple list of links instead of boxed cards */
+.service-links {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
 }
+.service-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  transition: color 0.2s ease;
+}
+.service-link:last-child { border-bottom: none; }
+.service-link .arrow { transition: transform 0.2s ease; }
+.service-link:hover { color: var(--color-primary-dark); }
+.service-link:hover .arrow { transform: translateX(4px); }
 
 .card-link {
   display: inline-flex;
@@ -381,27 +401,6 @@ h3 { font-size: 1.25rem; }
   font-weight: 600;
 }
 
-
-/* ---------- Testimonials [10] ---------- */
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.testimonial {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 28px;
-}
-.testimonial p { margin-bottom: 16px; }
-.testimonial cite {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
 
 /* ---------- CTA banner [11] ---------- */
 .cta-banner {
@@ -540,7 +539,6 @@ body.modal-open { overflow: hidden; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .card-grid,
   .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .testimonial-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr; }
 }
@@ -604,6 +602,5 @@ body.modal-open { overflow: hidden; }
   .nav-cta { display: none; }
   .card-grid-3,
   .process-grid { grid-template-columns: 1fr; }
-  .section { padding: 64px 0; }
   .hero { padding: 110px 0 72px; }
 }
