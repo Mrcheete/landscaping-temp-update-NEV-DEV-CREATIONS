@@ -216,10 +216,10 @@ h3 { font-size: 1.25rem; }
   padding: 140px 0 110px;
 }
 
-/* Full-bleed photo placeholder behind the headline — swap for a real photo
-   (as a background-image, or replace this div with an <img>) when ready.
-   If the photo is busy/dark, add a semi-transparent overlay and switch the
-   heading/subtext to white for readability. */
+/* Full-bleed photo placeholder behind the headline, on every screen size —
+   swap for a real photo (as a background-image, or replace this div with
+   an <img>) when ready. If the photo is busy/dark, add a semi-transparent
+   overlay and switch the heading/subtext to white for readability. */
 .hero-bg.media-placeholder {
   position: absolute;
   inset: 0;
